@@ -5,13 +5,9 @@ def rucksack_reorganisation(filename):
     pack_sum = 0
 
     for line in content:
-        # print(int(len(line)/2))
         compartment_a = set(line[0:int(len(line)/2)])
         compartment_b = set(line[int(len(line)/2):int(len(line))])
-        # print(compartment_a)
-        # print(compartment_b)
         item = compartment_a.intersection(compartment_b).pop()
-        # print(item)
 
         if item.islower():
             pack_sum += ord(item)-96
@@ -19,11 +15,6 @@ def rucksack_reorganisation(filename):
             pack_sum += ord(item)-38
 
     return pack_sum
-
-    # print(ord('a')-96)
-    # print(ord('z')-96)
-    # print(ord('A')-38)
-    # print(ord('Z')-38)
 
 print(rucksack_reorganisation("day3/rucksack_reorg_test.txt")) # 157
 print(rucksack_reorganisation("day3/rucksack_reorg_input.txt")) # 8018
